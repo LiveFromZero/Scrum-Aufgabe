@@ -1,7 +1,6 @@
 ﻿using Scrum_Aufgabe;
 
 Manager manager = new Manager();
-
 bool running = true;
 
 while (running)
@@ -13,33 +12,13 @@ while (running)
 
     switch (input)
     {
-        case "1":
-            manager.AddUserStory();
-            break;
-
-        case "2":
-            manager.ShowAllStories();
-            break;
-
-        case "3":
-            manager.FilterStories();
-            break;
-
-        case "4":
-            manager.ChangeStatusOfStory();
-            break;
-
-        case "5":
-            manager.ShowRemainingEffort();
-            break;
-
-        case "6":
-            running = false;
-            break;
-
-        default:
-            Console.WriteLine("Ungültige Eingabe.");
-            break;
+        case "1": manager.AddUserStoryInteractive(); break;
+        case "2": manager.ShowAllStoriesInteractive(); break;
+        case "3": manager.FilterStoriesInteractive(); break;
+        case "4": manager.ChangeStatusInteractive(); break;
+        case "5": manager.ShowRemainingEffortInteractive(); break;
+        case "6": running = false; break;
+        default: Console.WriteLine("Ungültige Eingabe."); break;
     }
 
     if (running)
