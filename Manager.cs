@@ -6,14 +6,35 @@ public class Manager
 
     public void AddUserStory()
     {
-        Console.Write("Beschreibung: ");
-        string beschreibung = Console.ReadLine();
+        string beschreibung;
+
+        do
+        {
+            Console.Write("Beschreibung: ");
+            beschreibung = Console.ReadLine();
+
+            if (DescriptionAlreadyExists(beschreibung))
+            {
+                Console.WriteLine(
+                    "Eine User Story mit dieser Beschreibung existiert bereits. Bitte eine andere Beschreibung eingeben.");
+            }
+
+        } while (DescriptionAlreadyExists(beschreibung));
 
         Console.Write("Bearbeiter: ");
         string bearbeiter = Console.ReadLine();
 
         Console.Write("Aufwand: ");
-        int aufwand = int.Parse(Console.ReadLine());
+
+        int aufwand;
+
+        while (!int.TryParse(Console.ReadLine(), out aufwand))
+        {
+            Console.WriteLine(
+                "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein:");
+
+            Console.Write("Aufwand: ");
+        }
 
         UserStory story =
             new UserStory(beschreibung, bearbeiter, aufwand);
@@ -21,6 +42,14 @@ public class Manager
         user_stories.Add(story);
 
         Console.WriteLine("User Story erfolgreich angelegt.");
+    }
+
+    private bool DescriptionAlreadyExists(string beschreibung)
+    {
+        return user_stories.Any(
+            s => s.Beschreibung.Equals(
+                beschreibung,
+                StringComparison.OrdinalIgnoreCase));
     }
 
     public void ShowAllStories()
