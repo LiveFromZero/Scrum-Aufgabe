@@ -157,7 +157,7 @@ public class Manager
         Console.WriteLine("Status erfolgreich geändert.");
     }
 
-    public void ShowRemainingffort()
+    public void ShowRemainingEffort()
     {
         int remainingEffort = user_stories
             .Where(s => s.Status != UserStoryStatus.Done)

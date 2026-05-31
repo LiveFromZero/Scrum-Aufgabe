@@ -30,7 +30,7 @@ while (running)
             break;
 
         case "5":
-            manager.ShowRemainingffort();
+            manager.ShowRemainingEffort();
             break;
 
         case "6":
