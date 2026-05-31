@@ -4,28 +4,28 @@ using System.Text;
 
 namespace Scrum_Aufgabe
 {
-    public class Verwaltung
+    public class Manager
     {
-        public List<User_Story> user_stories = new List<User_Story>();
+        public List<UserStory> user_stories = new List<UserStory>();
         public void AddUserStory(string _beschreibung, string _bearbeiter, int _aufwand)
         {
-            User_Story new_story = new User_Story(_beschreibung, _bearbeiter, _aufwand);
+            UserStory new_story = new UserStory(_beschreibung, _bearbeiter, _aufwand);
             user_stories.Add(new_story);
         }
 
-        public List<User_Story> ShowAllStories()
+        public List<UserStory> ShowAllStories()
         {
             return user_stories;
         }
 
-        public List<User_Story> FilterByStatus(UserStoryStatus _status)
+        public List<UserStory> FilterByStatus(UserStoryStatus _status)
         {
             return user_stories.Where(s => s.Status == _status).ToList();
         }
 
         public void ChangeStatusOfStory(UserStoryStatus _status, string _beschreibung)
         {
-            User_Story storyToBeChanged = user_stories.Where(s => s.Beschreibung.Contains(_beschreibung)).FirstOrDefault();
+            UserStory storyToBeChanged = user_stories.Where(s => s.Beschreibung.Contains(_beschreibung)).FirstOrDefault();
             storyToBeChanged.Status = _status;
         }
 
@@ -33,7 +33,7 @@ namespace Scrum_Aufgabe
         {
             int count = 0;
 
-            foreach(User_Story _story in user_stories)
+            foreach(UserStory _story in user_stories)
             {
                 if(_story.Status != UserStoryStatus.Done)
                 {
