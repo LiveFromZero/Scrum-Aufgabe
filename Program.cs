@@ -1,1 +1,3 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using Scrum_Aufgabe;
+
+Console.WriteLine(ConsoleTexts.WelcomeText);
