@@ -7,10 +7,10 @@ namespace Scrum_Aufgabe
 {
     public class User_Story
     {
-        private string Beschreibung { get; set;  }
-        private string Bearbeiter { get; set; }
-        private int Aufwand { get; set; }
-        private UserStoryStatus Status {  get; set; }
+        public string Beschreibung { get; set;  }
+        public string Bearbeiter { get; set; }
+        public int Aufwand { get; set; }
+        public UserStoryStatus Status {  get; set; }
 
         public User_Story(string beschreibung, string bearbeiter, int aufwand)
         {

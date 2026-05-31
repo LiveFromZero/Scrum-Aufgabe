@@ -6,7 +6,7 @@ namespace Scrum_Aufgabe
 {
     public class Verwaltung
     {
-        public List<User_Story> user_stories;
+        public List<User_Story> user_stories = new List<User_Story>();
         public void AddUserStory(string _beschreibung, string _bearbeiter, int _aufwand)
         {
             User_Story new_story = new User_Story(_beschreibung, _bearbeiter, _aufwand);
@@ -18,15 +18,15 @@ namespace Scrum_Aufgabe
             return user_stories;
         }
 
-        public User_Story FilterByStatus(UserStoryStatus _status)
+        public List<User_Story> FilterByStatus(UserStoryStatus _status)
         {
-            return user_stories.Where(s => s.Status == _status);
+            return user_stories.Where(s => s.Status == _status).ToList();
         }
 
         public void ChangeStatusOfStory(UserStoryStatus _status, string _beschreibung)
         {
             User_Story storyToBeChanged = user_stories.Where(s => s.Beschreibung.Contains(_beschreibung)).FirstOrDefault();
-            storyToBeChanged.status = _status;
+            storyToBeChanged.Status = _status;
         }
 
         public int ShowRemainingExpenditure()
