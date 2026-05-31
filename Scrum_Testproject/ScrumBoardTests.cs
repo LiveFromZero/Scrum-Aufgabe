@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-using Scrum_Aufgabe;
-
+﻿
 namespace Scrum_Aufgabe.Tests;
 
 [TestFixture]
